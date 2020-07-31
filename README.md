@@ -18,7 +18,7 @@ Look **Installation** to know how to deploy this project.
 
 ### Installation 🔧
 
-_Follow the next steps to know how to deploy this projet._
+_Follow the next steps to know how to deploy this project._
 
 _Clone the repository:_
 
@@ -45,6 +45,13 @@ pip install -r requirements.txt
 ```
 
 _Enjoy the bot!_
+
+## Built with 🛠️
+
+* [Python3](https://www.python.org/download/releases/3.0/)
+* [Telegram API](https://core.telegram.org/)
+* [pyTelegramBotAPI](https://github.com/eternnoir/pyTelegramBotAPI)
+
 
 ## Author ✒️
 
