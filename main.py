@@ -22,11 +22,17 @@ def verify_user(message):
     captcha = types.InlineKeyboardButton("I'm not a robot", callback_data="ok")
     markup = types.InlineKeyboardMarkup()
     markup.add(captcha)
-    bot.send_message(chat_id, "Verify you're not a robot", reply_markup=markup)
+    captcha_message = bot.send_message(chat_id, "@" + message.from_user.username + " verify you're not a robot", reply_markup=markup)
+    message_id = captcha_message.message_id
     functions.stop_countdown = False
     if(functions.countdown(wait_time) == True):
-        bot.kick_chat_member(chat_id, user_id)
-        
+        bot.delete_message(chat_id, message_id)
+        if(bot.get_chat_member(chat_id, user_id).status != "creator" and bot.get_chat_member(chat_id, user_id).status != "administrator"):
+            print(message.from_user.username + " who entered in " + message.chat.title + " didn't answered the captcha and was kicked.")
+            bot.kick_chat_member(chat_id, user_id)
+        else:
+            print(message.from_user.username + " who entered in " + message.chat.title + " didn't answered the captcha but it's an admin.")
+
 @bot.callback_query_handler(func=lambda call: True)
 def callback_inline(call):
     chat_id = call.message.chat.id
@@ -34,7 +40,7 @@ def callback_inline(call):
     if call.message:
         if call.data == "ok":
             functions.stop_countdown = True
-            print("Is not a robot.")
+            print(call.message.chat.title + " OK.")
             bot.delete_message(chat_id, message_id)
 
 
