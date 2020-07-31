@@ -48,4 +48,4 @@ _Enjoy the bot!_
 
 ## Author ✒️
 
-* **Marcos Rodríguez** - *Project and Documentation* - [CurbsideProph3t](https://github.com/CurbsideProph3t)
+* **Marcos Rodríguez** - *Project and Documentation* - [Github](https://github.com/CurbsideProph3t) - [Twitter](https://github.com/mark_doblefilo)
